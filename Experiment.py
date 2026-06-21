@@ -77,7 +77,7 @@ def load_adult(csv_path=None) -> pd.DataFrame:
 
 
 def _normalise_columns(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.rename(columns={c: c.strip().lower().replace("_", "-")
+    df = df.rename(columns={c: c.strip().lower().replace("_", "-").replace(".", "-")
                             for c in df.columns})
     # harmonise a couple of common name variants
     df = df.rename(columns={"educationnum": "education-num",
